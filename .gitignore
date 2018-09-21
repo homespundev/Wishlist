@@ -3,3 +3,5 @@ src/Wishlist.UI/Web.config
 Startup.Auth.cs
 .vs/Wishlist/v15/Server/sqlite3/db.lock
 .git
+packages
+.vs
