@@ -1,0 +1,50 @@
+﻿@model Wishlist.DATA.Family
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Family</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FamilyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FamilyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FamilyDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FamilyDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Private)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Private)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PublicFamilyId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PublicFamilyId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FamilyId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

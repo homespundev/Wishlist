@@ -10,3 +10,11 @@ C:\Users\Student\Documents\Visual Studio 2015\Projects\Personal\Wishlist\Wishlis
 C:\Users\Student\Documents\Visual Studio 2015\Projects\Personal\Wishlist\Wishlist.DATA\obj\Debug\Wishlist.DATA.csproj.CopyComplete
 C:\Users\Student\Documents\Visual Studio 2015\Projects\Personal\Wishlist\Wishlist.DATA\obj\Debug\Wishlist.DATA.dll
 C:\Users\Student\Documents\Visual Studio 2015\Projects\Personal\Wishlist\Wishlist.DATA\obj\Debug\Wishlist.DATA.pdb
+C:\Users\Student\Documents\Visual Studio 2015\Projects\Personal\Wishlist\src\Wishlist.DATA\bin\Debug\Wishlist.DATA.dll.config
+C:\Users\Student\Documents\Visual Studio 2015\Projects\Personal\Wishlist\src\Wishlist.DATA\bin\Debug\Wishlist.DATA.dll
+C:\Users\Student\Documents\Visual Studio 2015\Projects\Personal\Wishlist\src\Wishlist.DATA\bin\Debug\Wishlist.DATA.pdb
+C:\Users\Student\Documents\Visual Studio 2015\Projects\Personal\Wishlist\src\Wishlist.DATA\obj\Debug\Wishlist.DATA.csprojAssemblyReference.cache
+C:\Users\Student\Documents\Visual Studio 2015\Projects\Personal\Wishlist\src\Wishlist.DATA\obj\Debug\Wishlist.DATA.csproj.CoreCompileInputs.cache
+C:\Users\Student\Documents\Visual Studio 2015\Projects\Personal\Wishlist\src\Wishlist.DATA\obj\Debug\Wishlist.DATA.csproj.CopyComplete
+C:\Users\Student\Documents\Visual Studio 2015\Projects\Personal\Wishlist\src\Wishlist.DATA\obj\Debug\Wishlist.DATA.dll
+C:\Users\Student\Documents\Visual Studio 2015\Projects\Personal\Wishlist\src\Wishlist.DATA\obj\Debug\Wishlist.DATA.pdb

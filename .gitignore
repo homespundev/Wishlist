@@ -5,3 +5,4 @@ Startup.Auth.cs
 .git
 packages
 .vs
+src/Wishlist.DATA/App.config
