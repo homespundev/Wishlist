@@ -23,8 +23,6 @@ namespace Wishlist.DATA
         public int FamilyId { get; set; }
         public string FamilyName { get; set; }
         public string FamilyDescription { get; set; }
-        public Nullable<bool> Private { get; set; }
-        public string PublicFamilyId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetUser> AspNetUsers { get; set; }

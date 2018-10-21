@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -7,12 +9,13 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Wishlist.DATA;
+using Wishlist.UI.Models;
 
 namespace Wishlist.UI.Controllers
 {
     public class FamiliesController : Controller
     {
-        private WishlistDbEntities db = new WishlistDbEntities();
+        private WishlistDBEntities db = new WishlistDBEntities();
 
         // GET: Families
         public ActionResult Index()
@@ -36,9 +39,20 @@ namespace Wishlist.UI.Controllers
         }
 
         // GET: Families/Create
+        [Authorize]
         public ActionResult Create()
         {
-            return View();
+            var userId = User.Identity.GetUserId();
+            var user = db.AspNetUsers.Where(x => x.Id == userId).FirstOrDefault();
+            var userFamily = db.Families.Include(y => y.AspNetUsers).Where(z => z.FamilyId == user.FamilyID).FirstOrDefault();
+            if (userFamily.FamilyId == 0)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         // POST: Families/Create
@@ -46,11 +60,18 @@ namespace Wishlist.UI.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FamilyId,FamilyName,FamilyDescription,Private,PublicFamilyId")] Family family)
+        public ActionResult Create([Bind(Include = "FamilyId,FamilyName,FamilyDescription")] Family family)
         {
             if (ModelState.IsValid)
             {
+
+                var userId = User.Identity.GetUserId();
+                var user = db.AspNetUsers.Where(x => x.Id == userId).FirstOrDefault();
                 db.Families.Add(family);
+                user.FamilyID = family.FamilyId;
+                var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+                UserManager.AddToRole(userId, "Family Admin");
+                UserManager.RemoveFromRole(userId, "Member");
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -59,6 +80,7 @@ namespace Wishlist.UI.Controllers
         }
 
         // GET: Families/Edit/5
+        [Authorize(Roles = "Family Admin, Admin" )]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -78,7 +100,7 @@ namespace Wishlist.UI.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "FamilyId,FamilyName,FamilyDescription,Private,PublicFamilyId")] Family family)
+        public ActionResult Edit([Bind(Include = "FamilyId,FamilyName,FamilyDescription")] Family family)
         {
             if (ModelState.IsValid)
             {

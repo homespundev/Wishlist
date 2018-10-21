@@ -8,7 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace Wishlist.UI.Controllers
-{
+{   
+
     [Authorize]
     public class AccountController : Controller
     {
@@ -156,6 +157,7 @@ namespace Wishlist.UI.Controllers
                     var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking this link: <a href=\"" + callbackUrl + "\">link</a>");
+                    UserManager.AddToRole(user.Id, "Member");
                     ViewBag.Link = callbackUrl;
                     return View("DisplayEmail");
                 }

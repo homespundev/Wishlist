@@ -49,66 +49,57 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AspNetRole.cs">
-      <DependentUpon>WishlistDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="AspNetUser.cs">
-      <DependentUpon>WishlistDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AspNetUserClaim.cs">
-      <DependentUpon>WishlistDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AspNetUserLogin.cs">
-      <DependentUpon>WishlistDB.tt</DependentUpon>
+      <DependentUpon>WishlistDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Family.cs">
-      <DependentUpon>WishlistDB.tt</DependentUpon>
+      <DependentUpon>WishlistDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Item.cs">
-      <DependentUpon>WishlistDB.tt</DependentUpon>
+      <DependentUpon>WishlistDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Metadata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WishlistDB.Context.cs">
+    <Compile Include="WishlistDb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WishlistDB.Context.tt</DependentUpon>
+      <DependentUpon>WishlistDb.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="WishlistDB.cs">
+    <Compile Include="WishlistDb.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WishlistDB.tt</DependentUpon>
+      <DependentUpon>WishlistDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="WishlistDB.Designer.cs">
+    <Compile Include="WishlistDb.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WishlistDB.edmx</DependentUpon>
+      <DependentUpon>WishlistDb.edmx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="packages.config" />
-    <EntityDeploy Include="WishlistDB.edmx">
+    <EntityDeploy Include="WishlistDb.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>WishlistDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>WishlistDb.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="WishlistDB.edmx.diagram">
-      <DependentUpon>WishlistDB.edmx</DependentUpon>
+    <None Include="WishlistDb.edmx.diagram">
+      <DependentUpon>WishlistDb.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="WishlistDB.Context.tt">
+    <Content Include="WishlistDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WishlistDB.edmx</DependentUpon>
-      <LastGenOutput>WishlistDB.Context.cs</LastGenOutput>
+      <DependentUpon>WishlistDb.edmx</DependentUpon>
+      <LastGenOutput>WishlistDb.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="WishlistDB.tt">
+    <Content Include="WishlistDb.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WishlistDB.edmx</DependentUpon>
-      <LastGenOutput>WishlistDB.cs</LastGenOutput>
+      <DependentUpon>WishlistDb.edmx</DependentUpon>
+      <LastGenOutput>WishlistDb.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

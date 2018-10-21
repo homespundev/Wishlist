@@ -13,10 +13,10 @@ namespace Wishlist.DATA
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WishlistDbEntities : DbContext
+    public partial class WishlistDBEntities : DbContext
     {
-        public WishlistDbEntities()
-            : base("name=WishlistDbEntities")
+        public WishlistDBEntities()
+            : base("name=WishlistDBEntities")
         {
         }
     
@@ -25,9 +25,6 @@ namespace Wishlist.DATA
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
-        public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
-        public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Family> Families { get; set; }
         public virtual DbSet<Item> Items { get; set; }

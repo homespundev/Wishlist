@@ -12,7 +12,7 @@ namespace Wishlist.UI.Controllers
 {
     public class ItemsController : Controller
     {
-        private WishlistDbEntities db = new WishlistDbEntities();
+        private WishlistDBEntities db = new WishlistDBEntities();
 
         // GET: Items
         public ActionResult Index()

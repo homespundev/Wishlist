@@ -14,17 +14,17 @@ namespace Wishlist.DATA
         [StringLength(50, ErrorMessage = "* Max Length 50 characters")]
         [Display(Name = "Family Name")]
         public string FamilyName { get; set; }
-
         [StringLength(500, ErrorMessage = "* Max Length 500 characters")]
         [Display(Name = "Description")]
         public string FamilyDescription { get; set; }
         [Required]
         [StringLength(100, ErrorMessage = "* Max Length 100 characters")]
         [Display(Name = "Family ID")]
-        public string PublicFamilyId { get; set; }
+        public string FamilyId { get; set; }
     }
     [MetadataType(typeof(FamilyMetadata))]
     public partial class Family { }
+
     class ItemMetadata
     {
         [Required]

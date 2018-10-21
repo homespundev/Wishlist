@@ -1,35 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="WishlistDbModelStoreContainer" CdmEntityContainer="WishlistDbEntities">
-    <EntitySetMapping Name="AspNetRoles">
-      <EntityTypeMapping TypeName="WishlistDbModel.AspNetRole">
-        <MappingFragment StoreEntitySet="AspNetRoles">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="AspNetUserClaims">
-      <EntityTypeMapping TypeName="WishlistDbModel.AspNetUserClaim">
-        <MappingFragment StoreEntitySet="AspNetUserClaims">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
-          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="AspNetUserLogins">
-      <EntityTypeMapping TypeName="WishlistDbModel.AspNetUserLogin">
-        <MappingFragment StoreEntitySet="AspNetUserLogins">
-          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
-          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
+  <EntityContainerMapping StorageEntityContainer="WishlistDBModelStoreContainer" CdmEntityContainer="WishlistDBEntities">
     <EntitySetMapping Name="AspNetUsers">
-      <EntityTypeMapping TypeName="WishlistDbModel.AspNetUser">
+      <EntityTypeMapping TypeName="WishlistDBModel.AspNetUser">
         <MappingFragment StoreEntitySet="AspNetUsers">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -51,18 +24,16 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Families">
-      <EntityTypeMapping TypeName="WishlistDbModel.Family">
+      <EntityTypeMapping TypeName="WishlistDBModel.Family">
         <MappingFragment StoreEntitySet="Families">
-          <ScalarProperty Name="PublicFamilyId" ColumnName="PublicFamilyId" />
           <ScalarProperty Name="FamilyId" ColumnName="FamilyId" />
           <ScalarProperty Name="FamilyName" ColumnName="FamilyName" />
           <ScalarProperty Name="FamilyDescription" ColumnName="FamilyDescription" />
-          <ScalarProperty Name="Private" ColumnName="Private" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Items">
-      <EntityTypeMapping TypeName="WishlistDbModel.Item">
+      <EntityTypeMapping TypeName="WishlistDBModel.Item">
         <MappingFragment StoreEntitySet="Items">
           <ScalarProperty Name="ItemId" ColumnName="ItemId" />
           <ScalarProperty Name="ItemName" ColumnName="ItemName" />
@@ -74,13 +45,5 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="AspNetUserRoles" TypeName="WishlistDbModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
-      <EndProperty Name="AspNetRoles">
-        <ScalarProperty Name="Id" ColumnName="RoleId" />
-      </EndProperty>
-      <EndProperty Name="AspNetUsers">
-        <ScalarProperty Name="Id" ColumnName="UserId" />
-      </EndProperty>
-    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>
