@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -10,6 +11,7 @@ using Wishlist.DATA;
 
 namespace Wishlist.UI.Controllers
 {
+    [Authorize]
     public class ItemsController : Controller
     {
         private WishlistDBEntities db = new WishlistDBEntities();
@@ -17,7 +19,13 @@ namespace Wishlist.UI.Controllers
         // GET: Items
         public ActionResult Index()
         {
+            var userId = User.Identity.GetUserId();
             var items = db.Items.Include(i => i.AspNetUser);
+            if (User.IsInRole("Family Admin, Member"))
+            {
+                items = db.Items.Where(x => x.MemberId == userId);
+            }
+
             return View(items.ToList());
         }
 
@@ -56,8 +64,21 @@ namespace Wishlist.UI.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            ViewBag.MemberId = new SelectList(db.AspNetUsers, "Id", "FirstName", item.MemberId);
+            if (User.IsInRole("Member"))
+            {
+                ViewBag.MemberId = User.Identity.GetUserId();
+            }
+            if (User.IsInRole("Family Admin"))
+            {
+                var userId = User.Identity.GetUserId();
+                var user = db.AspNetUsers.Where(x => x.Id == userId).FirstOrDefault();
+                var famMembers = db.AspNetUsers.Where(x => x.FamilyID == user.FamilyID);
+                ViewBag.MemberId = new SelectList(famMembers, "Id", "Name", item.MemberId);
+            }
+            if (User.IsInRole("Admin"))
+            {
+                ViewBag.MemberId = new SelectList(db.AspNetUsers, "Id", "Name", item.MemberId);
+            }
             return View(item);
         }
 

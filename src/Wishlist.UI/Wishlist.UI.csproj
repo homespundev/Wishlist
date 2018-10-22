@@ -282,11 +282,19 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Fonts\" />
-    <Folder Include="Views\Families\" />
-    <Folder Include="Views\Items\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Views\Items\Index.cshtml" />
+    <Content Include="Views\Items\Details.cshtml" />
+    <Content Include="Views\Items\Create.cshtml" />
+    <Content Include="Views\Items\Edit.cshtml" />
+    <Content Include="Views\Items\Delete.cshtml" />
+    <Content Include="Views\Families\Index.cshtml" />
+    <Content Include="Views\Families\Details.cshtml" />
+    <Content Include="Views\Families\Create.cshtml" />
+    <Content Include="Views\Families\Edit.cshtml" />
+    <Content Include="Views\Families\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

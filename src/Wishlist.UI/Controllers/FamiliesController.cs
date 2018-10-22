@@ -13,6 +13,7 @@ using Wishlist.UI.Models;
 
 namespace Wishlist.UI.Controllers
 {
+    [Authorize]
     public class FamiliesController : Controller
     {
         private WishlistDBEntities db = new WishlistDBEntities();
@@ -20,7 +21,22 @@ namespace Wishlist.UI.Controllers
         // GET: Families
         public ActionResult Index()
         {
-            return View(db.Families.ToList());
+            var userId = User.Identity.GetUserId();
+            var user = db.AspNetUsers.Where(x => x.Id == userId).FirstOrDefault();
+            if (!User.IsInRole("Admin") && user.FamilyID != null)
+            {
+                return RedirectToAction("Details", user.FamilyID);
+                
+            }
+            if (user.FamilyID == null)
+            {
+                return JavaScript("<script>alert(\"You are not currently assigned to a family. Would you like to create one?\")</script>");
+            }
+            else
+            {
+                return View(db.Families.ToList());
+            }
+            
         }
 
         // GET: Families/Details/5
@@ -39,13 +55,11 @@ namespace Wishlist.UI.Controllers
         }
 
         // GET: Families/Create
-        [Authorize]
         public ActionResult Create()
         {
             var userId = User.Identity.GetUserId();
             var user = db.AspNetUsers.Where(x => x.Id == userId).FirstOrDefault();
-            var userFamily = db.Families.Include(y => y.AspNetUsers).Where(z => z.FamilyId == user.FamilyID).FirstOrDefault();
-            if (userFamily.FamilyId == 0)
+            if (user.FamilyID == null)
             {
                 return RedirectToAction("Index");
             }
@@ -112,6 +126,7 @@ namespace Wishlist.UI.Controllers
         }
 
         // GET: Families/Delete/5
+        [Authorize(Roles = "Family Admin, Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

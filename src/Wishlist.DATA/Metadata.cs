@@ -65,5 +65,8 @@ namespace Wishlist.DATA
         public string UserName { get; set; }
     }
     [MetadataType(typeof(UserMetadata))]
-    public partial class AspNetUser { }
+    public partial class AspNetUser {
+        [Display(Name = "Name")]
+        public string FullName { get { return FirstName + " " + LastName; } }
+    }
 }
