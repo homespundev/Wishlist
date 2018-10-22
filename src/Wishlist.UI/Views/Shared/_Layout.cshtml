@@ -46,34 +46,13 @@
                         <li class="nav-item px-lg-4">
                             <a class="nav-link text-uppercase text-expanded" href="@Url.Action("About", "Home")">About</a>
                         </li>
-                        <li class="nav-item px-lg-4 dropdown">
-                            <a class="nav-link text-uppercase text-expanded dropdown-toggle" data-toggle="dropdown"
-                               target="_blank" aria-haspopup="true" aria-expanded="false" href="@Url.Action("Archive", "Posts")">
-                                Blog
-                                <span class="caret"></span>
+                        <li class="nav-item px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="@Url.Action("Index", "Families")">
+                                My Family
                             </a>
-                            <ul class="dropdown-menu bg-faded">
-                                <li>
-                                    <a href="~/Posts/Details/@ViewBag.MostRecentPost" class="nav-link text-uppercase">
-                                        Most Recent
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="~/Posts/Archive" class="nav-link text-uppercase text-expanded">
-                                        Archive
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="~/Categories/Index" class="nav-link text-uppercase text-expanded">
-                                        Categories
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="~/Tags/Index" class="nav-link text-uppercase text-expanded">
-                                        Tags
-                                    </a>
-                                </li>
-                            </ul>
+                        </li>
+                        <li class="nav-item px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="@Url.Action("Index", "Items")">My List</a>
                         </li>
                         <li class="nav-item px-lg-4">
                             <a class="nav-link text-uppercase text-expanded" href="@Url.Action("Contact", "Home")">Contact</a>

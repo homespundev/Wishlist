@@ -1,5 +1,5 @@
 ﻿@model Wishlist.DATA.Item
-
+@using Microsoft.AspNet.Identity
 @{
     ViewBag.Title = "Details";
 }
@@ -41,23 +41,25 @@
         <dd>
             @Html.DisplayFor(model => model.ItemImage)
         </dd>
+        @if (User.IsInRole("Member") && Model.MemberId != User.Identity.GetUserId())
+        {
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Purchased)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Purchased)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Purchased)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Purchased)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AspNetUser.FirstName)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.AspNetUser.FullName)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.AspNetUser.FirstName)
-        </dd>
-
+            <dd>
+                @Html.DisplayFor(model => model.AspNetUser.FullName)
+            </dd>
+        }
     </dl>
 </div>
 <p>
