@@ -25,7 +25,9 @@ namespace Wishlist.UI.Controllers
             var user = db.AspNetUsers.Where(x => x.Id == userId).FirstOrDefault();
             if (!User.IsInRole("Admin") && user.FamilyID != null)
             {
-                return RedirectToAction("Details", user.FamilyID);
+                var userFamily = user.FamilyID;
+                var familyMembers = db.AspNetUsers.Where(x => x.FamilyID == userFamily);
+                return View(familyMembers.ToList());
                 
             }
             if (user.FamilyID == null)
@@ -59,7 +61,7 @@ namespace Wishlist.UI.Controllers
         {
             var userId = User.Identity.GetUserId();
             var user = db.AspNetUsers.Where(x => x.Id == userId).FirstOrDefault();
-            if (user.FamilyID == null)
+            if (user.FamilyID != null)
             {
                 return RedirectToAction("Index");
             }

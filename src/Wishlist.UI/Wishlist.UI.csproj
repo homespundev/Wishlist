@@ -225,7 +225,23 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Images\wooden-planks-2503422_1920.jpg" />
+    <Content Include="Content\Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Content\Scripts\bootstrap.js" />
+    <Content Include="Content\Scripts\bootstrap.min.js" />
+    <Content Include="Content\Scripts\cart.js" />
+    <Content Include="Content\Scripts\CartjQuery.js" />
+    <Content Include="Content\Scripts\docs.js" />
     <Content Include="Content\Scripts\formvalidation.js" />
+    <Content Include="Content\Scripts\jquery.js" />
+    <Content Include="Content\Scripts\jquery.min.js" />
+    <Content Include="Content\Scripts\multiselect.js" />
+    <Content Include="Content\Scripts\popper.js" />
+    <Content Include="Content\Scripts\popper.min.js" />
+    <Content Include="Content\Scripts\select2.js" />
+    <Content Include="Content\Styles\bootstrap-grid.min.css" />
+    <Content Include="Content\Styles\bootstrap-reboot.min.css" />
+    <Content Include="Content\Styles\bootstrap-social.css" />
+    <Content Include="Content\Styles\bootstrap.min.css" />
     <Content Include="Content\Styles\business-casual.css" />
     <Content Include="Content\Styles\custom.css" />
     <Content Include="favicon.ico" />
@@ -281,9 +297,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Fonts\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Fonts\FontAwesome.otf" />
     <None Include="packages.config" />
     <Content Include="Views\Items\Index.cshtml" />
     <Content Include="Views\Items\Details.cshtml" />

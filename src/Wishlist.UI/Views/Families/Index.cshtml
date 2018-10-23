@@ -1,39 +1,68 @@
 ﻿@model IEnumerable<Wishlist.DATA.Family>
-
+@using Microsoft.AspNet.Identity;
+@using Wishlist.DATA;
 @{
-    ViewBag.Title = "Index";
+    WishlistDBEntities db = new WishlistDBEntities();
+
+    var userId = User.Identity.GetUserId();
+    var user = db.AspNetUsers.Where(x => x.Id == userId).FirstOrDefault();
+    var userFamily = user.FamilyID;
+    if (User.IsInRole("Family Admin, Member"))
+    {
+        ViewBag.Title = "My Family";
+    }
+    else
+    {
+        ViewBag.Title = "Families";
+    }
 }
 
-<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @if (User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Create New Family", "Create")
+    }
+
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FamilyName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FamilyDescription)
-        </th>
-        <th></th>
-    </tr>
+@if (User.IsInRole("Admin"))
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FamilyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FamilyDescription)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FamilyName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FamilyDescription)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.FamilyId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.FamilyId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.FamilyId })
-        </td>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FamilyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FamilyDescription)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.FamilyId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.FamilyId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.FamilyId })
+                </td>
+            </tr>
+        }
+
+    </table>
 }
+@if (userFamily == null)
+{
+    <h2>Uh oh!</h2>
+    <p>Your account is not assigned to a family on HomespunWish. <a href="@Url.Action("Create","Families")">Would you like to create one?</a></p>
+}
+@if (!User.IsInRole("Admin") && userFamily != null)
+{
 
-</table>
+}
